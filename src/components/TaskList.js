@@ -3,7 +3,7 @@ import { Button, ListGroup, Container } from 'react-bootstrap';
 import axios from 'axios';
 
 const TaskList = ({ tasks, setTasks }) => {
-  const SERVER_URL = 'http://localhost:8080/api/tasks';
+  const SERVER_URL = 'https://thesocialhunch-task-management.onrender.com/api/tasks';
 
   const fetchTasks = async () => {
     try {
@@ -34,14 +34,13 @@ const TaskList = ({ tasks, setTasks }) => {
           title: updatedTitle,
           description: updatedDescription,
         });
-        fetchTasks(); // Refetch tasks after updating
+        fetchTasks();
       } catch (error) {
         console.error('Error updating task:', error);
       }
     }
   };
 
-  // Ensure tasks is an array before mapping
   const taskList = Array.isArray(tasks) ? tasks : [];
 
   return (

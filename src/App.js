@@ -9,8 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const [showAlert, setShowAlert] = useState(true); // State for alert visibility
-  const SERVER_URL = 'http://localhost:8080/api/tasks';
+  const [showAlert, setShowAlert] = useState(true);
+  const SERVER_URL = 'https://thesocialhunch-task-management.onrender.com/api/tasks';
 
   useEffect(() => {
     const fetchTasks = async () => {

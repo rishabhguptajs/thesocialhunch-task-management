@@ -5,7 +5,7 @@ import axios from 'axios';
 const AddTask = ({ onClose }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const SERVER_URL = 'http://localhost:8080/api';
+  const SERVER_URL = 'https://thesocialhunch-task-management.onrender.com/api';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
