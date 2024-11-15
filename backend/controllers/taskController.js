@@ -6,7 +6,7 @@ const getTasks = async(req, res) => {
         if(tasks.length > 0) {
             res.status(200).json(tasks)
         } else { 
-            res.status(404).json({message: 'No tasks found' })
+            res.status(200).json({message: 'No tasks found' })
         }
     } catch (error) {
         return res.status(500).json({message: error.message})
