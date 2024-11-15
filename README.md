@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Task Management Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple task management web application built with React, Node.js, Express, and MongoDB. It allows users to create, edit, and delete tasks.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add new tasks with a title and description
+- Edit existing tasks
+- Delete tasks
+- View a list of all tasks
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React: Frontend framework for building user interfaces
+- Node.js: JavaScript runtime for server-side applications
+- Express: Web application framework for Node.js
+- MongoDB: NoSQL database for storing tasks
+- Axios: Promise-based HTTP client for making requests to the server
+- Bootstrap: Frontend framework for designing responsive and mobile-first websites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API Endpoints
 
-### `npm test`
+### GET /api/tasks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Description: Retrieves a list of all tasks
+- Response: JSON array of tasks
+- Sample Response:
+```json
+[
+  {
+    "_id": "task1_id",
+    "title": "Task 1",
+    "description": "This is the first task"
+  },
+  {
+    "_id": "task2_id",
+    "title": "Task 2",
+    "description": "This is the second task"
+  }
+]
+```
 
-### `npm run build`
+### POST /api/tasks
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Description: Creates a new task
+- Request Body: JSON object with `title` and `description` properties
+- Response: JSON object with the created task and a success message
+- Sample Request:
+```json
+{
+  "title": "New Task",
+  "description": "This is a new task"
+}
+```
+- Sample Response:
+```json
+{
+  "message": "Task created successfully",
+  "task": {
+    "_id": "new_task_id",
+    "title": "New Task",
+    "description": "This is a new task"
+  }
+}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### PUT /api/tasks/:id
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Description: Updates an existing task
+- Request Body: JSON object with `title` and/or `description` properties
+- Response: JSON object with the updated task and a success message
+- Sample Request:
+```json
+{
+  "title": "Updated Task",
+  "description": "This task has been updated"
+}
+```
+- Sample Response:
+```json
+{
+  "message": "Task updated successfully",
+  "task": {
+    "_id": "task_id",
+    "title": "Updated Task",
+    "description": "This task has been updated"
+  }
+}
 
-### `npm run eject`
+### DELETE /api/tasks/:id
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Description: Deletes a task by its ID
+- Response: JSON object with a success message
+- Sample Response:
+```json
+{
+  "message": "Task deleted successfully"
+}
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## How to Run
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository
+2. Navigate to the project directory in your terminal
+3. Run `npm install` to install the dependencies
+4. Start the backend server by running `npm run dev` in the `backend` directory
+5. Start the frontend server by running `npm start` in the `src` directory
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Author
 
-## Learn More
+This project was created by [Your Name Here]. If you have any questions or suggestions, please feel free to reach out.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
